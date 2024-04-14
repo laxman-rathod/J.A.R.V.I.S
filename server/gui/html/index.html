@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style.css" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="../images/ironman_reactor_logo__jarvis.png"
+    />
+    <title>JARVIS - Just A Rather Very Inteligent System.</title>
+  </head>
+  <body>
+    <video id="video-player" controls autoplay onended="playSecondVideo()">
+      <source src="../videos/jarvis_mark_3_intro.mp4" type="video/mp4" />
+    </video>
+
+    <script>
+      const video = document.getElementById("video-player");
+
+      function playSecondVideo() {
+        video.src = "../videos/jarvis_mark_3_processing_data.mp4";
+        video.loop = true;
+        video.play();
+      }
+    </script>
+  </body>
+</html>
