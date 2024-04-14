@@ -3,41 +3,73 @@ from play_music import stop_song, play_song
 import pyautogui
 import speedtest 
 
-from datetime import datetime
+# import datetime
+# import time
+
+# def set_alarm_time(input_time):
+#     try:
+#         input_formatted_time = datetime.datetime.strptime(input_time, '%I:%M %p')
+#         formatted_time = input_formatted_time.strftime('%I:%M %p')
+        
+#         return formatted_time
+#     except ValueError:
+#         speak("Sir please provide time like HH:MM AM/PM format.")
+#         return None
+
+# def check_alarm(alarm_time):
+#     while True:
+#         now = datetime.datetime.now()
+#         current_time = now.strftime("%I:%M %p")
+#         if current_time == alarm_time:
+#             speak("Sir Alarm activated!")
+#             speak("Sir.... Alarm activated!")
+#             # Add your code to handle the alarm here
+#             break
+#         time.sleep(10)  # Check every 10 seconds
+
+# def main_alarm(input_time):
+#     input_time = input_time.replace("jarvis", "").replace("set", "").replace("alarm", "").replace(".", "").replace("for", "").replace("at", "").strip()
+#     alarm_time = set_alarm_time(input_time)
+#     if alarm_time:
+#         speak(f"Alarm set for {alarm_time}")
+#         check_alarm(alarm_time)
+
+import datetime
 import time
+import threading
+from jarvis_speech_recognizer import listen
 
 def set_alarm_time(input_time):
     try:
-        input_formatted_time = datetime.strptime(input_time, '%I:%M %p')
+        input_formatted_time = datetime.datetime.strptime(input_time, '%I:%M %p')
         formatted_time = input_formatted_time.strftime('%I:%M %p')
-        with open("Alarmtext.txt", "w") as time_file:
-            time_file.write(formatted_time)
-        print(f"Alarm set for {formatted_time}.")
-        speak(f"Alarm set for {formatted_time}.")
+        return formatted_time
     except ValueError:
-        print("Invalid time format. Please enter time in HH:MM AM/PM format.")
-        return
+        speak("Sir please provide time like HH:MM AM/PM format.")
+        return None
 
-def check_alarm():
-    with open("Alarmtext.txt", "r") as file:
-        alarm_time = file.read().strip()
+def check_alarm(alarm_time):
     while True:
-        now = datetime.now()
+        now = datetime.datetime.now()
         current_time = now.strftime("%I:%M %p")
         if current_time == alarm_time:
             speak("Sir Alarm activated!")
-            time.sleep(1)
-            speak("Sir.. Alarm activated!")
+            speak("Sir........ Alarm activated!")
+            # Add your code to handle the alarm here
             break
-        time.sleep(10) # Check every 10 seconds
+        time.sleep(10)  # Check every 10 seconds
+
+def alarm_thread(alarm_time):
+    check_alarm(alarm_time)
 
 def main_alarm(input_time):
-    # speak("Please say the time followed by the time in format HH MM AM/PM.")
-    # input_time = listen().replace(".", "")
-    input_time = input_time.replace(".", "").replace("jarvis", "").replace("set", "").replace("set alarm", "").replace("alarm", "").replace("for", "").replace("at", "")
-    if input_time:
-        set_alarm_time(input_time)
-        check_alarm()
+    input_time = input_time.replace("jarvis", "").replace("set", "").replace("alarm", "").replace(".", "").replace("for", "").replace("at", "").strip()
+    alarm_time = set_alarm_time(input_time)
+    alarm_thread = None  # Initialize alarm_thread to None
+    if alarm_time:
+        speak(f"Alarm set for {alarm_time}.")
+        alarm_thread = threading.Thread(target=alarm_thread, args=(alarm_time,))
+        alarm_thread.start()
 
 def snooze_alarm():
     stop_song()

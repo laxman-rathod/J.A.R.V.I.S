@@ -26,7 +26,7 @@ def search_about(query):
         speak("Done Sir")
 
     elif "wikipedia" in query:
-        speak("Searching from Wikipedia Sir....")
+        speak("Searching on Wikipedia Sir....")
         query = query.replace("wikipedia", "")
         try:
             results = wikipedia.summary(query, sentences=2)

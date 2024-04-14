@@ -7,5 +7,5 @@ def type_something(prompt):
     time.sleep(2)
     pyautogui.typewrite(prompt)
     pyautogui.press("enter")
-    time.sleep(2) # Wait for a few seconds to see the result
     speak("Done sir!")
+    time.sleep(2) # Wait for a few seconds to see the result

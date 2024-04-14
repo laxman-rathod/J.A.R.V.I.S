@@ -63,7 +63,6 @@ def handle_commands(command):
         say_what_rem()
 
     elif "alarm" in command: # set alarm for 3:15 pm
-        print(command)
         main_alarm(command)
 
     elif "my photo" in command:

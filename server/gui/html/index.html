@@ -12,15 +12,15 @@
     <title>JARVIS - Just A Rather Very Inteligent System.</title>
   </head>
   <body>
-    <video id="video-player" controls autoplay onended="playSecondVideo()">
-      <source src="../videos/jarvis_mark_3_intro.mp4" type="video/mp4" />
+    <video id="video-player" autoplay onended="playSecondVideo()">
+      <source src="../videos/jarvis_mark_3_intro (1).mp4" type="video/mp4" />
     </video>
 
     <script>
       const video = document.getElementById("video-player");
 
       function playSecondVideo() {
-        video.src = "../videos/jarvis_mark_3_processing_data.mp4";
+        video.src = "../videos/jarvis_mark_3_processing_data (new).mp4";
         video.loop = true;
         video.play();
       }
