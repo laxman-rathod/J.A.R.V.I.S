@@ -1,3 +1,4 @@
+import gui.jarvis_ui
 from jarvis_speech_recognizer import listen, speak
 from whatsapp_automation import sendMessage
 from dict_apps import *
@@ -13,7 +14,7 @@ import type_automatically
 import system_info
 
 import llama2_nlp
-from gui import jarvis_ui
+import gui
 
                
 def handle_commands(command):
@@ -102,8 +103,7 @@ def handle_commands(command):
         speak(data)
 
 if __name__ == '__main__':
-    from gui import jarvis_ui
-    jarvis_ui.opening_ui()
+    gui.jarvis_ui.opening_ui()
     time.sleep(22)
     
     print("\n Welcome back sir!\n ")
