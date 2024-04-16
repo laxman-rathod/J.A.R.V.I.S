@@ -15,7 +15,6 @@ import system_info
 
 import llama2_nlp
 import gui
-
                
 def handle_commands(command):
     if "wake up" in command or "greet me" in command:

@@ -12,6 +12,6 @@ def sendMessage():
     message = listen()
     if message:
         speak(f"Sending {message} message sir")
-        pywhatkit.sendwhatmsg("+919764701233", message, time_hour = strTime, time_min = update)
+        pywhatkit.sendwhatmsg("+919356775435", message, time_hour = strTime, time_min = update)
         # print("Sir Message sent successfully!")
         speak("Sir Message sent successfully!")

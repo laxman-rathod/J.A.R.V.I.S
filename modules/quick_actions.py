@@ -4,7 +4,7 @@ import ctypes
 import datetime
 import time
 import os
-import configparser
+# import configparser
     
 def sleep_jarvis(query):
     speak("Okay sir, You can call me anytime")
@@ -61,13 +61,14 @@ def system_lock():
         speak("Sir something went wrong.")
         
 def login_windows():
-    config = configparser.ConfigParser()# Create a configparser object
-    config.read('secrets.ini')# Load the INI file
-    speak("Sir, after a few seconds, the system will be logged in.")
+    # config = configparser.ConfigParser()# Create a configparser object
+    # config.read('secrets.ini')# Load the INI file
+    # speak("Sir, after a few seconds, the system will be logged in.")
     
-    password = config.get('secrets', 'password')# Get the secrets
-    # time.sleep(2) # Delay for a few seconds to switch to the login screen
-    pyautogui.press('enter')
-    pyautogui.typewrite(password)# Type the password
-    pyautogui.press('enter')
-    speak("Sir, the system has been successfully logged in.")
+    # password = config.get('secrets', 'password')# Get the secrets
+    # # time.sleep(2) # Delay for a few seconds to switch to the login screen
+    # pyautogui.press('enter')
+    # pyautogui.typewrite(password)# Type the password
+    # pyautogui.press('enter')
+    # speak("Sir, the system has been successfully logged in.")
+    pass
